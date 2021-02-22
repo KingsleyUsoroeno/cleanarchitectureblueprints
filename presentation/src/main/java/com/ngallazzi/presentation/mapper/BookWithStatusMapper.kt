@@ -1,11 +1,12 @@
-package com.ngallazzi.cleanarchitectureblueprints.mappers
+package com.ngallazzi.presentation.mapper
 
-import com.ngallazzi.cleanarchitectureblueprints.entities.BookWithStatus
-import com.ngallazzi.cleanarchitectureblueprints.entities.BookmarkStatus
 import com.ngallazzi.domain.entities.Volume
 import com.ngallazzi.domain.entities.VolumeInfo
+import com.ngallazzi.presentation.model.BookWithStatus
+import com.ngallazzi.presentation.model.BookmarkStatus
 
 class BookWithStatusMapper {
+
     fun fromVolumeToBookWithStatus(
         volumes: List<Volume>,
         bookmarks: List<Volume>

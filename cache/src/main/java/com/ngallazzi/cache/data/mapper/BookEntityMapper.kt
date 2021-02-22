@@ -4,7 +4,7 @@ import com.ngallazzi.cache.data.models.CacheBookEntity
 import com.ngallazzi.data.entities.BookEntity
 
 /**
- * Map a [CachedUser] instance to and from a [UserEntity] instance when data is moving between
+ * Map a [CacheBookEntity] instance to and from a [BookEntity] instance when data is moving between
  * this later and the Data layer
  */
 class BookEntityMapper : EntityMapper<CacheBookEntity, BookEntity> {

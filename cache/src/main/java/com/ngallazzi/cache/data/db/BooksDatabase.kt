@@ -6,12 +6,13 @@ import androidx.room.Room
 import androidx.room.RoomDatabase
 import androidx.room.TypeConverters
 import com.ngallazzi.cache.data.converters.Converters
+import com.ngallazzi.cache.data.daos.BookDao
 import com.ngallazzi.cache.data.models.CacheBookEntity
 
 @Database(entities = [CacheBookEntity::class], version = 1, exportSchema = false)
 @TypeConverters(Converters::class)
 abstract class BooksDatabase : RoomDatabase() {
-    abstract fun bookDao(): com.ngallazzi.cache.data.daos.BookDao
+    abstract fun bookDao(): BookDao
 
     companion object {
         @Volatile

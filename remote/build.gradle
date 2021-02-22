@@ -10,23 +10,19 @@ java {
 }
 
 dependencies {
-    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
-    // Networking
-    //implementation "com.squareup.okhttp3:okhttp-bom:$okhttp_version"
-    implementation("com.squareup.okhttp3:logging-interceptor")
-    implementation("com.squareup.okhttp3:okhttp:$okhttp_version")
-    implementation "com.squareup.retrofit2:retrofit:$retrofit_version"
-    implementation "com.squareup.retrofit2:converter-scalars:$retrofit_version"
-
-    // Moshi for json serialization / deserialization
-    implementation "com.squareup.retrofit2:converter-moshi:$retrofit_moshi_converter_version"
-    implementation "com.squareup.moshi:moshi-kotlin:$moshi_version"
-    implementation "com.squareup.moshi:moshi-adapters:$moshi_version"
-
-    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:$coroutines_version"
-    implementation "com.jakewharton.retrofit:retrofit2-kotlin-coroutines-adapter:$coroutines_adapter_version"
-    implementation "com.squareup.okhttp3:logging-interceptor:$okhttp_logging_iterceptor_version"
-
     implementation project(':data')
     implementation project(':domain')
+
+    implementation(Network.okHttp)
+    implementation(Network.retrofit)
+    implementation(Network.retrofitScalars)
+    implementation(Network.moshi)
+    implementation(Network.moshiAdapters)
+    implementation(Network.retrofitMoshi)
+    implementation(Network.retrofitCoroutinesAdapter)
+    implementation(Network.loggingInterceptor)
+    implementation(Libraries.coroutinesCore)
+    implementation(Libraries.kotlin)
+    implementation(Libraries.Junit)
+    implementation(Libraries.androidXCore)
 }
