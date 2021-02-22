@@ -10,8 +10,8 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.ngallazzi.cleanarchitectureblueprints.R
-import com.ngallazzi.cleanarchitectureblueprints.entities.BookWithStatus
-import com.ngallazzi.cleanarchitectureblueprints.entities.BookmarkStatus
+import com.ngallazzi.presentation.model.BookWithStatus
+import com.ngallazzi.presentation.model.BookmarkStatus
 
 
 class BookAdapter(

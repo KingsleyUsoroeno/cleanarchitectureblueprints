@@ -1,8 +1,8 @@
 package com.ngallazzi.data.repositories.books
 
+import com.ngallazzi.data.entities.BookEntity
 import com.ngallazzi.domain.common.Result
-import com.ngallazzi.domain.entities.Volume
 
 interface BooksRemoteDataSource {
-    suspend fun getBooks(author: String): Result<List<Volume>>
+    suspend fun getBooks(author: String): Result<List<BookEntity>>
 }
