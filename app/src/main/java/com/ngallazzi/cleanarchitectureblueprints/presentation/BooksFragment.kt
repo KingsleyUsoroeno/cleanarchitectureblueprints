@@ -7,12 +7,13 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.GridLayoutManager
-import com.ngallazzi.cleanarchitectureblueprints.R
 import com.ngallazzi.cleanarchitectureblueprints.CleanArchitectureBlueprintsApplication
 import com.ngallazzi.cleanarchitectureblueprints.LayoutUtils
-import com.ngallazzi.cleanarchitectureblueprints.entities.BookWithStatus
-import com.ngallazzi.domain.entities.Volume
+import com.ngallazzi.cleanarchitectureblueprints.R
+import com.ngallazzi.presentation.BooksViewModel
+import com.ngallazzi.presentation.model.BookWithStatus
 import kotlinx.android.synthetic.main.fragment_books.*
 
 class BooksFragment : Fragment() {
@@ -54,11 +55,11 @@ class BooksFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        booksViewModel.books.observe(viewLifecycleOwner, {
+        booksViewModel.books.observe(viewLifecycleOwner, Observer {
             booksAdapter.submitUpdate(it)
         })
 
-        booksViewModel.dataLoading.observe(viewLifecycleOwner, { loading ->
+        booksViewModel.dataLoading.observe(viewLifecycleOwner, Observer { loading ->
             when (loading) {
                 true -> LayoutUtils.crossFade(pbLoading, rvBooks)
                 false -> LayoutUtils.crossFade(rvBooks, pbLoading)
@@ -71,7 +72,7 @@ class BooksFragment : Fragment() {
             adapter = booksAdapter
         }
 
-        booksViewModel.error.observe(viewLifecycleOwner, {
+        booksViewModel.error.observe(viewLifecycleOwner, Observer {
             Toast.makeText(
                 requireContext(),
                 getString(R.string.an_error_has_occurred, it),

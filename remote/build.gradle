@@ -1,0 +1,28 @@
+plugins {
+    id 'java-library'
+    id 'kotlin'
+    id 'kotlin-kapt'
+}
+
+java {
+    sourceCompatibility = JavaVersion.VERSION_1_8
+    targetCompatibility = JavaVersion.VERSION_1_8
+}
+
+dependencies {
+    implementation project(':data')
+    implementation project(':domain')
+
+    implementation(Network.okHttp)
+    implementation(Network.retrofit)
+    implementation(Network.retrofitScalars)
+    implementation(Network.moshi)
+    implementation(Network.moshiAdapters)
+    implementation(Network.retrofitMoshi)
+    implementation(Network.retrofitCoroutinesAdapter)
+    implementation(Network.loggingInterceptor)
+    implementation(Libraries.coroutinesCore)
+    implementation(Libraries.kotlin)
+    implementation(Libraries.Junit)
+    implementation(Libraries.androidXCore)
+}
